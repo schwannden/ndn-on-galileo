@@ -1,10 +1,17 @@
 # Todo
 
-The book has a lot of content thats waiting to be completed. If you believe you can help, the co-authorship is welcomed.
+The book has a lot of contents waiting to be completed.
+If you believe you can help, the co-authorship is welcomed.
 
-For co-authorship request, please email:
+* Add more tutorial on Yocto.
+* Add example commands on configuring nfd.
+* Add examples on setting up ndn clients and servers with above commands.
+* Provide steps relevant to Fedora.
+* Provide steps relevant to OsX.
+* An all in one script for compiling image, tool chain, and NDN.
+* Or do you want to know more about other stuff? Email me.
+
+For co-authorship request or to-do list suggestion, please email:
 `schwannden@gmail.com`
-with your github user ID, someintroduction to yourself, and which part of the book do you intent to edit/improve/add content.
+with your github user ID, some introduction to yourself, and which part of the book do you intent to edit/improve/add content.
 
-* Add more tutorial on Yocto
-* Add example commands on configuring nfd
