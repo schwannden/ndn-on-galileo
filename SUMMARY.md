@@ -7,7 +7,7 @@
    * [Building NDN](building_ndn.md)
 * [Chapter 2: The Commands](chapter2.md)
 * [Chapter 3: The Lazy Ride](chapter3.md)
-* [Appendix](chapter4.md)
+* [Appendix](appendix.md)
    * [Debug Yocto](debug_yocto.md)
    * [Debug Galileo](debug_galileo.md)
    * [Network Setup](network_setup.md)
