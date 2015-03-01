@@ -10,8 +10,12 @@ If you believe you can help, the co-authorship is welcomed.
 * Provide steps relevant to OsX.
 * An all in one script for compiling image, tool chain, and NDN.
 * Or do you want to know more about other stuff? Email me.
+* Installation and configuration of other NDN applications.
 
 For co-authorship request or to-do list suggestion, please email:
-`schwannden@gmail.com`
-with your github user ID, some introduction to yourself, and which part of the book do you intent to edit/improve/add content.
+
+#### `schwannden@gmail.com`
+
+with your GitHub user ID, some introduction to yourself,
+and which part of the book you intend to edit/improve/add content.
 
