@@ -87,11 +87,9 @@ opkg install pkgconfig openssl sqlite3
 The installation of `vim` and `git` is not necessary, it's just that I can't survive without them.
 
 ### Moving everything onto Galileo
-In Galileo, wee need exactly the same directory
+In Galileo, we need exactly the same directory
 ```
-mkdir /opt/ndn
-mkdir /opt/ndn/sysroots/
-mkdir /opt/ndn/sysroots/i586-poky-linux-uclibc
+mkdir -p /opt/ndn/sysroots/i586-poky-linux-uclibc
 ```
 Now we need to copy 4 things from SDK machine to Galileo. There are many ways to do it, and we simply use `scp`. On SDK machine, change to `PKG_CONFIG_SYSROOT_DIR` directory
 ```

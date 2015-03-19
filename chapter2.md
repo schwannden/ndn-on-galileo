@@ -129,9 +129,7 @@ src/gz i586    http://repo.opkg.net/galileo/repo/i586
 opkg update
 opkg install --force-overwrite uclibc
 opkg install pkgconfig openssl sqlite3
-mkdir /opt/ndn
-mkdir /opt/ndn/sysroots/
-mkdir /opt/ndn/sysroots/i586-poky-linux-uclibc
+mkdir -p /opt/ndn/sysroots/i586-poky-linux-uclibc
 ```
 
 `End of Galileo`
