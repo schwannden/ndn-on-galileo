@@ -57,7 +57,7 @@ cd NFD
 ```
 At the time of writing, I encountered two errors. They are easily fixed by looking at error message, nevertheless I shall list the errors and modifications I made.
 
-
+* In wscript, delete akk test to boost
 * In `face/ethernet-face.cpp`, change `std::snprintf` to `snprintf`, because in the tool chain, `snprintf` is not a member of `std`.
 * In `tools/ndn-autoconfig/base-dns.cpp to_string` change `std::to_string` to `boost::chrono::to_string`. This is because tool chain's library does not provide `to_string`, a C++11 function (tool chain's gcc does provide C++11 standard, it just doesn't provide `to_string`).
 
