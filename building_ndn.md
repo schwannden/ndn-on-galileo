@@ -120,3 +120,20 @@ scp -r usr/bin/ndn* root@10.0.0.2:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/b
 ```
 scp -r usr/etc/ndn root@10.0.0.2:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/etc/
 ```
+
+### Changng the configuration files
+In Galileo, make sure configuration files have the right names
+```
+cd /opt/ndn/sysroots/i586-poky-linux-uclibc/usr/etc/ndn
+cp client.conf.sample client.conf
+cp nfd.conf.sample nfd.conf
+```
+Then some edit to `nfd-start` script is required
+```
+cd /bin
+vim nfd-start
+```
+Change
+```
+function pgrep() { ps | grep $1 | grep -v grep; }
+```
