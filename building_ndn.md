@@ -2,14 +2,8 @@
 
 Building NDN for Galileo requires we cross compile the main program on host machine, and port it onto Galileo. We can't build `ndn-cxx` and `nfd` on Galileo, not just because its slow, but because Galileo only has 512K memory, while compiling `ndn-cxx` requires 2G.
 
-We can, however, compile `libcryptopp` and `boost` natively on Galileo, but it takes very long.
+Since `boost` is included in the image and toolchain ( if you followed my steps in  [`Building Galileo Image on Debian`](building_galileo_image_on_debian.md)). In this chapter, we show how to cross compile `libcryptopp`, `ndn-cxx`, `nfd`. There are alternative ways to compile `libcryptopp` and `boost`, please see remark.
 
-There are three ways to install `boost`:
-1. `boost` is best installed by a recipe from the start (as I mentioned in [`Building Galileo Image on Debian`](building_galileo_image_on_debian.md)), so that the tool chain contains boost from beginning.
-2. Cross compile `boost` in the tool chain. It requires changing some lines in `boost`'s make script. `boost` uses somthing called bjam, which read script written by its own language. The error is related to a wrong parameter type in a function call.
-3. Compile `boost` natively on Galileo. Tried it and succeeded, took me 2.5 days, just waiting for the compilation.
-
-For `libcryptopp`, there is no recipe, so we can cross compile it or compile it natively. Compile it natively takes only an hours, but since cross compile for `libcryptopp` is extreme easy, so in the following guide, I choose to cross compile `libcryptopp`.
 
 ### On SDK machine
 
@@ -70,6 +64,13 @@ At the time of writing, I encountered two errors. They are easily fixed by looki
 
 ### On Galileo
 First ssh in to Galileo.
+
+If your file system is less than 1G (this is barely enough but is enough), resize it to 4G to have more freedom
+```
+cd /media/mmcblk0p1/
+fsck.ext3 -f /media/sdcard/image-full-clanton.ext3
+resize2fs /media/sdcard/image-full-clanton.ext3 4096000
+```
 
 Because Yocto's Galileo image uses `opkg` as its package management utility, we need to set up `opkg` first. The following tutorial is based on [LJ Chen's tutorial](https://sites.google.com/site/cclljj/resources/notes_galileo), which in turn based on [AlexT's repository](http://alextgalileo.altervista.org/package-repo-configuration-instructions.html).
 
@@ -144,3 +145,13 @@ Change
 ```
 function pgrep() { ps | grep $1 | grep -v grep; }
 ```
+
+### Remark
+We can, compile `libcryptopp` and `boost` natively on Galileo, but it takes very long.
+
+* There are three ways to install `boost`:
+  1. `boost` is best installed by a recipe from the start (as I mentioned in [`Building Galileo Image on Debian`](building_galileo_image_on_debian.md)), so that the tool chain contains boost from beginning.
+  2. Cross compile `boost` in the tool chain. It requires changing some lines in `boost`'s make script. `boost` uses somthing called bjam, which read script written by its own language. The error is related to a wrong parameter type in a function call. The type was correct in normal compilation, but in cross compilation, extra flags in `$CXX` causes the error.
+  3. Compile `boost` natively on Galileo. Tried it and succeeded, took me 2.5 days, just waiting for the compilation.
+
+* For `libcryptopp`, there is no recipe, so we can cross compile it or compile it natively. Compile it natively takes only an hours, which isn't too bad.
