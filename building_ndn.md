@@ -141,10 +141,11 @@ Then some edit to `nfd-start` script is required
 cd /bin
 vim nfd-start
 ```
-Change
+add
 ```
 function pgrep() { ps | grep $1 | grep -v grep; }
 ```
+to `nfd-start` because the image does not have `pgrep`.
 
 ### Remark
 We can, compile `libcryptopp` and `boost` natively on Galileo, but it takes very long.
