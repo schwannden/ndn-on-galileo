@@ -68,8 +68,8 @@ First ssh in to Galileo.
 If your file system is less than 1G (this is barely enough but is enough), resize it to 4G to have more freedom
 ```
 cd /media/mmcblk0p1/
-fsck.ext3 -f /media/sdcard/image-full-clanton.ext3
-resize2fs /media/sdcard/image-full-clanton.ext3 4096000
+fsck.ext3 -f image-full-galileo-clanton.ext3
+resize2fs image-full-galileo-clanton.ext3 4096000
 ```
 
 Because Yocto's Galileo image uses `opkg` as its package management utility, we need to set up `opkg` first. The following tutorial is based on [LJ Chen's tutorial](https://sites.google.com/site/cclljj/resources/notes_galileo), which in turn based on [AlexT's repository](http://alextgalileo.altervista.org/package-repo-configuration-instructions.html).
