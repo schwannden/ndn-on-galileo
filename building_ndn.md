@@ -13,9 +13,16 @@ For `libcryptopp`, there is no recipe, so we can cross compile it or compile it 
 
 ### On SDK machine
 
-If you follow my instructions, your SDK should contain `boost` already. We shall install 3 more things here in SDk machine.
+If you follow my instructions, your SDK should contain `boost` already. We shall install 3 more things here in SDk machine. Because NFD need a `-pthread` flag in `LDFLAGS`. We need to add it to our environment set-up script.
 ```
 cd /opt/ndn/
+vim environment-setup-i586-poky-linux-uclibc
+```
+Append `-pthread` flag in `LDFLAGS`, so that the line becomes
+`export LDFLAGS="-Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -pthread"`
+And then set up the environment
+```
+source environment-setup-i586-poky-linux-uclibc
 ```
 
 1. libcryptopp
