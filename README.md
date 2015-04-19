@@ -11,7 +11,7 @@ E-mail: schwannden@gmail.com
 Many thanks to
 Professor [Ling-Jyh Chen](https://sites.google.com/site/cclljj/), for bringing me into this new research field and give me much support and resources.
 
-And to Professor [Ying-Ping Chen](http://people.cs.nctu.edu.tw/~ypchen/) who supported my projects and discussed with me various problems along the way.
+And to Professor [Ying-Ping Chen](http://ypchen.tw) who supported my projects and discussed with me various problems along the way.
 
 ### Table of Content
 This book is split in three Chapters:
