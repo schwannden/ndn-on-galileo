@@ -1,6 +1,8 @@
 # The Commands
 
-Notice this page is a sequence of commands without explainations. By simply following this command, you might encounter bugs unexpected depending on your system. [The Whole Story](chapter1.md) presents a more detailed account and actions to take on senario. Also [The Whole Story](chapter1.md) provides most up-to-date information.
+* WARNING: This Section May Contain Outdated Information! For latest instruction, visit [Chapter 1: The Whole Story](chapter1.md)
+
+* WARNING: This page is a sequence of commands without explainations. By simply following this command, you might encounter bugs unexpected depending on your system. [The Whole Story](chapter1.md) presents a more detailed account and actions to take on different senario.
 
 ### `On Debian 7.8`
 ```
