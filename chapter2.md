@@ -23,7 +23,7 @@ tar -xzf patches_v1.0.4.tar.gz
 ./patches_v1.0.4/patch.meta-clanton.sh
 
 wget http://cgit.openembedded.org/openembedded-core/snapshot/openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.gz
-tar -xjvf openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.bz
+tar -xzvf openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.gz
 cd openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f
 cd meta/recipes-support
 cp -r boost ~/ndn/Galileo-Runtime/meta-clanton_v1.0.1/meta-oe/meta-oe/recipes-support
