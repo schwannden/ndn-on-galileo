@@ -28,7 +28,7 @@ cd openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f
 cd meta/recipes-support
 cp -r boost ~/ndn/Galileo-Runtime/meta-clanton_v1.0.1/meta-oe/meta-oe/recipes-support
 
-cd ~/ndn/meta-clanton_v1.0.1
+cd ~/ndn/Galileo-Runtime/meta-clanton_v1.0.1
 ```
 
 Edit image recipe `meta-clanton-distro/recipes-core/images/image-full.bb`
