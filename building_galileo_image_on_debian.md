@@ -58,7 +58,7 @@ Now go to `meta-clanton_v1.0.1` you can see all the meta directory. Because NDN 
 
 ```
 wget http://cgit.openembedded.org/openembedded-core/snapshot/openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.gz
-tar -xjvf openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.bz  
+tar -xzvf openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.gz  
 ```
 All we need is boost's recipe so copy the `boost` folder into one of our working directory's meta-* folder. Since this is provided by [Open Embedded](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/), let's copy it into `meta-oe` folder.
 ```
