@@ -27,7 +27,7 @@ mkdir cryptopp
 cd cryptopp
 unzip ../cryptopp562.zip
 ```
-There is a problem about libcryptopp's make file that prevents making process from setting `-march` correctly. Please delete the following lines in `GNUMake`
+There is a problem about libcryptopp's make file that prevents making process from setting `-march` correctly. Please delete the following lines in `GNUmakefile`
 ```
  39 ifeq ($(UNAME),Darwin)
  40 CXXFLAGS += -arch x86_64 -arch i386
