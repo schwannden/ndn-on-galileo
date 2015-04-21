@@ -117,28 +117,30 @@ cd $PKG_CONFIG_SYSROOT_DIR
 ```
 Suppose the IP address of your Galileo is `10.0.0.2`
 
+`export GalileoIP=10.0.0.2`
+
 1. `libcryptopp` library and headers
 ```
-scp -r include/cryptopp root@10.0.0.2:/include
-scp lib/libcryptopp.so root@10.0.0.2:/lib
+scp -r include/cryptopp root@$GalileoIP:/include
+scp lib/libcryptopp.so root@$GalileoIP:/lib
 ```
 2. `ndn-cxx` libraries and headers
 ```
-scp -r  usr/include/ndn-cxx root@10.0.0.2:/usr/include
-scp usr/lib/libndn-cxx.a root@10.0.0.2:/usr/lib
-scp -r  usr/include/ndn-cxx root@10.0.0.2:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/include
-scp usr/lib/libndn-cxx.a root@10.0.0.2:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/lib
+scp -r  usr/include/ndn-cxx root@$GalileoIP:/usr/include
+scp usr/lib/libndn-cxx.a root@$GalileoIP:/usr/lib
+scp -r  usr/include/ndn-cxx root@$GalileoIP:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/include
+scp usr/lib/libndn-cxx.a root@$GalileoIP:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/lib
 ```
 3. `nfd` executable
 ```
-scp -r usr/bin/nfd* root@10.0.0.2:/bin
-scp -r usr/bin/ndn* root@10.0.0.2:/bin
-scp -r usr/bin/nfd* root@10.0.0.2:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/bin
-scp -r usr/bin/ndn* root@10.0.0.2:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/bin
+scp -r usr/bin/nfd* root@$GalileoIP:/bin
+scp -r usr/bin/ndn* root@$GalileoIP:/bin
+scp -r usr/bin/nfd* root@$GalileoIP:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/bin
+scp -r usr/bin/ndn* root@$GalileoIP:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/bin
 ```
 4. `ndn` configuration files
 ```
-scp -r usr/etc/ndn root@10.0.0.2:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/etc/
+scp -r usr/etc/ndn root@$GalileoIP:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/etc/
 ```
 
 ### Changng the configuration files
@@ -164,7 +166,8 @@ We can, compile `libcryptopp` and `boost` natively on Galileo, but it takes very
 
 * There are three ways to install `boost`:
   1. `boost` is best installed by a recipe from the start (as I mentioned in [`Building Galileo Image on Debian`](building_galileo_image_on_debian.md)), so that the tool chain contains boost from beginning.
-  2. Cross compile `boost` in the tool chain. It requires changing some lines in `boost`'s make script. `boost` uses somthing called bjam, which read script written by its own language. The error is related to a wrong parameter type in a function call. The type was correct in normal compilation, but in cross compilation, extra flags in `$CXX` causes the error.
-  3. Compile `boost` natively on Galileo. Tried it and succeeded, took me 2.5 days, just waiting for the compilation.
+  2. `boost` can now be installed natively in Galileo from [Intel's IoT repository](http://iotdk.intel.com/repos/1.1/iotdk/i586/).
+  3. Cross compile `boost` in the tool chain. It requires changing some lines in `boost`'s make script. `boost` uses somthing called bjam, which read script written by its own language. The error is related to a wrong parameter type in a function call. The type was correct in normal compilation, but in cross compilation, extra flags in `$CXX` causes the error.
+  4. Compile `boost` natively on Galileo. Tried it and succeeded, took me 2.5 days, just waiting for the compilation.
 
 * For `libcryptopp`, there is no recipe, so we can cross compile it or compile it natively. Compile it natively takes only an hours, which isn't too bad.
