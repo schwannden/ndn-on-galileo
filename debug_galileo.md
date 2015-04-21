@@ -49,3 +49,7 @@ r
 ```
 
 `layout next` will show the following machine-language instruction. 
+![layout](Screenshot 2015-04-21 23.36.06.png)
+`r` will run the program until `SIGILL`, you can see exactly which instruction in which file gives you the error. And now you can further see if the instruction is in the ISA of Galileo's Intel Quark SoC X1000 Core (see [Developer’s Manual](http://cse.unl.edu/~goddard/Courses/CSCE351/IntelArchitecture/InstructionSetSummary.pdf)).
+
+If it is not, that means when you compile that file, instructions outside i586 architecture is used.
