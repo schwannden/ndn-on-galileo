@@ -20,11 +20,23 @@ source environment-setup-i586-poky-linux-uclibc
 ```
 
 1. libcryptopp
+
 ```
 wget http://prdownloads.sourceforge.net/cryptopp/cryptopp562.zip
 mkdir cryptopp
 cd cryptopp
 unzip ../cryptopp562.zip
+```
+There is a problem about libcryptopp's make file that prevents making process from setting `-march` correctly. Please delete the following lines in `GNUMake`
+```
+ 39 ifeq ($(UNAME),Darwin)
+ 40 CXXFLAGS += -arch x86_64 -arch i386
+ 41 else
+ 42 CXXFLAGS += -march=native
+ 43 endif
+```
+These lines appends `-march=native` to `CXXFLAGS`, overwriting `-march=i586` from `environment-setup-i586-poky-linux-uclibc`. After deleting these lines, the compiled libary should work correctly.
+```
 make dynamic
 make install PREFIX=$PKG_CONFIG_SYSROOT_DIR
 ```
