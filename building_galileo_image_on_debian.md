@@ -24,14 +24,11 @@ cd iasl;
 git clone git://github.com/acpica/acpica.git
 cd acpica
 make
-```
-At the time of writing, the Makefile treats warning message as fatal, causing the compilation to fail due to line 660 of `source/components/events/evgpe.c`, a usage of uninitialized variable `Status`. just initialize `Status` to 0 at line 635 and `make` it.
-
-If the compilation is successful, install iasl
-```
 sudo ln -s /home/schwannden/ndn/iasl/acpica/generate/unix/bin/iasl /usr/bin/iasl
 ```
 Again, try ` iasl | head ` to see if ACPI 5.0 up is supported. It should be now.
+
+A possible error may happen during `iasl` compilation, see remark at the end.
 
 #### Getting Recipes
 This is the specific meta package I use for my build: `https://github.com/schwannden/Galileo-Runtime`, which is forked from ` https://github.com/01org/Galileo-Runtime on 2015/2/1`. I forked it because I intend to maintain it as a customized meta package for NDN development. So it is suggested you clone from my repository.
@@ -133,5 +130,10 @@ Galileo uses micro SD card, so need a machine that reads micro SD card. I simply
 Notice some renaming is required, because Yocto insert the date-time as part of the name on each build, so you might see, for example, `image-full-galileo-clanton-20150226141940.rootfs.ext3`.
 
 Now insert the micro SD card into Galileo, and you are all set booting your Galileo image. By default, the image has ssh server daemon starts on boot time, with standard port (22) and user `root` with no password (See [Debug Galileo](debug_galileo.md) for some hacks on debugging and connecting to Galileo).
+
+#### Remark
+* `iasl` bug
+
+At the time of writing, the Makefile for `iasl` treats warning message as fatal, causing the compilation to fail due to line 660 of `source/components/events/evgpe.c`, a usage of uninitialized variable `Status`. just initialize `Status` to 0 at line 635 and `make` it.
 
 
