@@ -32,23 +32,26 @@ libcryptopp ndn-cxx NFD
 ```
 
 Now following instructions in [Building NDN](building_ndn.md), suppose the IP address of your Galileo is `10.0.0.2`
-
+```
+export GalileoIP=10.0.0.2
+```
 1. `libcryptopp` library and headers
 ```
-scp -r include/cryptopp root@10.0.0.2:/include
-scp lib/libcryptopp.so root@10.0.0.2:/lib
+scp -r include/cryptopp root@$GalileoIP:/include
+scp lib/libcryptopp.so root@$GalileoIP:/lib
 ```
 2. `ndn-cxx` libraries and headers
 ```
-scp -r  usr/include/ndn-cxx root@10.0.0.2:/usr/include
-scp usr/lib/libndn-cxx.a root@10.0.0.2:/usr/lib
-scp -r  usr/include/ndn-cxx ```
+scp -r  usr/include/ndn-cxx root@$GalileoIP:/usr/include
+scp usr/lib/libndn-cxx.a root@$GalileoIP:/usr/lib
+scp -r  usr/include/ndn-cxx 
+```
 3. `nfd` executable
 ```
-scp -r usr/bin/nfd* root@10.0.0.2:/bin
-scp -r usr/bin/ndn* root@10.0.0.2:/bin
+scp -r usr/bin/nfd* root@$GalileoIP:/bin
+scp -r usr/bin/ndn* root@$GalileoIP:/bin
 ```
 4. `ndn` configuration files
 ```
-scp -r usr/etc/ndn root@10.0.0.2:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/etc/
+scp -r usr/etc/ndn root@$GalileoIP:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/etc/
 ```
