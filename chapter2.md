@@ -147,11 +147,7 @@ scp -r include/cryptopp root@$GalileoIP:/include
 scp lib/libcryptopp.so root@$GalileoIP:/lib
 scp -r  usr/include/ndn-cxx root@$GalileoIP:/usr/include
 scp usr/lib/libndn-cxx.a root@$GalileoIP:/usr/lib
-scp -r  usr/include/ndn-cxx root@$GalileoIP:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/include
-scp usr/lib/libndn-cxx.a root@$GalileoIP:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/lib
 scp -r usr/bin/nfd* root@$GalileoIP:/bin
 scp -r usr/bin/ndn* root@$GalileoIP:/bin
-scp -r usr/bin/nfd* root@$GalileoIP:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/bin
-scp -r usr/bin/ndn* root@$GalileoIP:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/bin
 scp -r usr/etc/ndn root@$GalileoIP:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/etc/
 ```
