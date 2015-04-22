@@ -109,7 +109,7 @@ The installation of `vim` and `git` is not necessary, it's just that I can't sur
 ### Moving everything onto Galileo
 In Galileo, we need exactly the same directory
 ```
-mkdir -p /opt/ndn/sysroots/i586-poky-linux-uclibc
+mkdir -p /opt/ndn/sysroots/i586-poky-linux-uclibc/usr/etc
 ```
 Now we need to copy 4 things from SDK machine to Galileo. There are many ways to do it, and we simply use `scp`. On SDK machine, change to `PKG_CONFIG_SYSROOT_DIR` directory
 ```
@@ -128,15 +128,12 @@ scp lib/libcryptopp.so root@$GalileoIP:/lib
 ```
 scp -r  usr/include/ndn-cxx root@$GalileoIP:/usr/include
 scp usr/lib/libndn-cxx.a root@$GalileoIP:/usr/lib
-scp -r  usr/include/ndn-cxx root@$GalileoIP:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/include
-scp usr/lib/libndn-cxx.a root@$GalileoIP:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/lib
+scp -r  usr/include/ndn-cxx
 ```
 3. `nfd` executable
 ```
 scp -r usr/bin/nfd* root@$GalileoIP:/bin
 scp -r usr/bin/ndn* root@$GalileoIP:/bin
-scp -r usr/bin/nfd* root@$GalileoIP:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/bin
-scp -r usr/bin/ndn* root@$GalileoIP:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/bin
 ```
 4. `ndn` configuration files
 ```
