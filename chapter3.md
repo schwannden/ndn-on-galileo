@@ -18,7 +18,7 @@ This tool chain is the result of [Building Cross Compile Toolchain](building_cro
 libcryptopp ndn-cxx NFD
 ```
 
-To copy everything to Galileo, usse the script `sdk2galileo.sh` in [allInOne]( https://www.dropbox.com/sh/v24bbmqymbkw3v9/AADdVbMV57T6U9WhRNxrGDVta?dl=0) folder.
+To copy everything to Galileo, usse the script `sdk2Galileo.sh` in [allInOne]( https://www.dropbox.com/sh/v24bbmqymbkw3v9/AADdVbMV57T6U9WhRNxrGDVta?dl=0) folder.
 ```
-./sdk2galileo -f all
+./sdk2Galileo -f all
 ```
