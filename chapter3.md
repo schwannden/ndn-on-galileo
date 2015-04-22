@@ -42,15 +42,11 @@ scp lib/libcryptopp.so root@10.0.0.2:/lib
 ```
 scp -r  usr/include/ndn-cxx root@10.0.0.2:/usr/include
 scp usr/lib/libndn-cxx.a root@10.0.0.2:/usr/lib
-scp -r  usr/include/ndn-cxx root@10.0.0.2:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/include
-scp usr/lib/libndn-cxx.a root@10.0.0.2:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/lib
-```
+scp -r  usr/include/ndn-cxx ```
 3. `nfd` executable
 ```
 scp -r usr/bin/nfd* root@10.0.0.2:/bin
 scp -r usr/bin/ndn* root@10.0.0.2:/bin
-scp -r usr/bin/nfd* root@10.0.0.2:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/bin
-scp -r usr/bin/ndn* root@10.0.0.2:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/bin
 ```
 4. `ndn` configuration files
 ```
