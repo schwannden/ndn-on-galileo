@@ -39,7 +39,6 @@ scp lib/libcryptopp.so root@$GalileoIP:/lib
 ```
 scp -r  usr/include/ndn-cxx root@$GalileoIP:/usr/include
 scp usr/lib/libndn-cxx.a root@$GalileoIP:/usr/lib
-scp -r  usr/include/ndn-cxx
 ```
 3. `nfd` executable
 ```
