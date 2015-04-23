@@ -74,39 +74,6 @@ At the time of writing, I encountered two errors. They are easily fixed by looki
 * In `face/ethernet-face.cpp`, change `std::snprintf` to `snprintf`, because in the tool chain, `snprintf` is not a member of `std`.
 * In `tools/ndn-autoconfig/base-dns.cpp to_string` change `std::to_string` to `boost::chrono::to_string`. This is because tool chain's library does not provide `to_string`, a C++11 function (tool chain's gcc does provide C++11 standard, it just doesn't provide `to_string`).
 
-### On Galileo
-First ssh in to Galileo.
-
-If your file system is less than 1G (this is barely enough but is enough), resize it to 4G to have more freedom
-```
-cd /media/mmcblk0p1/
-fsck.ext3 -f image-full-galileo-clanton.ext3
-resize2fs image-full-galileo-clanton.ext3 4096000
-```
-
-Because Yocto's Galileo image uses `opkg` as its package management utility, we need to set up `opkg` first. The following tutorial is based on [LJ Chen's tutorial](https://sites.google.com/site/cclljj/resources/notes_galileo), which in turn based on [AlexT's repository](http://alextgalileo.altervista.org/package-repo-configuration-instructions.html).
-
-Edit `/etc/opkg/base-feeds.conf` to add repository. Add following lines to the file:
-```
-src/gz all     http://repo.opkg.net/galileo/repo/all
-src/gz clanton http://repo.opkg.net/galileo/repo/clanton
-src/gz i586    http://repo.opkg.net/galileo/repo/i586
-```
-
-Update and configure `opkg`
-```
-opkg update
-opkg install --force-overwrite uclibc
-```
-
-Now we are in position to install packages on Galileo
-```
-opkg install vim git
-opkg install pkgconfig openssl sqlite3
-```
-The installation of `vim` and `git` is not necessary, it's just that I can't survive without them.
-
-
 ### Remark
 We can, compile `libcryptopp` and `boost` natively on Galileo, but it takes very long.
 
