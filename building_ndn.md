@@ -5,7 +5,7 @@ Building NDN for Galileo requires we cross compile the main program on host mach
 Since `boost` is included in the image and toolchain ( if you followed my steps in  [`Building Galileo Image on Debian`](building_galileo_image_on_debian.md)). In this chapter, we show how to cross compile `libcryptopp`, `ndn-cxx`, `nfd`. There are alternative ways to compile `libcryptopp` and `boost`, please see remark.
 
 
-### On SDK machine
+## On SDK machine
 
 If you follow my instructions, your SDK should contain `boost` already. We shall install 3 more things here in SDk machine. Because NFD need a `-pthread` flag in `LDFLAGS`. We need to add it to our environment set-up script.
 ```
@@ -19,8 +19,7 @@ And then set up the environment
 source environment-setup-i586-poky-linux-uclibc
 ```
 
-1. libcryptopp
-
+#### 1. libcryptopp
 ```
 wget http://prdownloads.sourceforge.net/cryptopp/cryptopp562.zip
 mkdir cryptopp
@@ -42,7 +41,7 @@ make install PREFIX=$PKG_CONFIG_SYSROOT_DIR
 ```
 Note because we NDN only requires dynamic library, some we only make the dynamic library. The value of `PKG_CONFIG_SYSROOT_DIR` was set when you executed `source environment-setup-i586-poky-linux-uclibc`, the value should be `/opt/ndn/sysroots/i586-poky-linux-uclibc` if you choose the same path as me for the tool chain directory.
 
-2. ndn-cxx
+#### 2. ndn-cxx
 ```
 cd /opt/ndn/
 ```
@@ -59,7 +58,7 @@ cd ndn-cxx
 /usr/bin/python waf install
 ```
 
-3. nfd
+#### 3. nfd
 ```
 cd /opt/ndn/
 git clone --recursive https://github.com/named-data/NFD
@@ -68,11 +67,10 @@ cd NFD
 /usr/bin/python waf
 /usr/bin/python waf install
 ```
-At the time of writing, I encountered two errors. They are easily fixed by looking at error message, nevertheless I shall list the errors and modifications I made.
-
-* In wscript, delete akk test to boost
-* In `face/ethernet-face.cpp`, change `std::snprintf` to `snprintf`, because in the tool chain, `snprintf` is not a member of `std`.
-* In `tools/ndn-autoconfig/base-dns.cpp to_string` change `std::to_string` to `boost::chrono::to_string`. This is because tool chain's library does not provide `to_string`, a C++11 function (tool chain's gcc does provide C++11 standard, it just doesn't provide `to_string`).
+If you remember to add the `-pthread` to `LDFLAGS` in `environment-setup-i586-poky-linux-uclibc`, thing should compile without error. But if you did not follow my steps and encounter error, the following are some of the possible errors and fixes:
+* Boost linkage error: in wscript, delete all test to boost
+* `snprintf` not in `std`: In `face/ethernet-face.cpp`, change `std::snprintf` to `snprintf`, because in the tool chain, `snprintf` is not a member of `std`.
+* `to_string` not found: In `tools/ndn-autoconfig/base-dns.cpp to_string` change `std::to_string` to `boost::chrono::to_string`. This is because tool chain's library does not provide `to_string`, a C++11 function (tool chain's gcc does provide C++11 standard, it just doesn't provide `to_string`).
 
 ### Remark
 We can, compile `libcryptopp` and `boost` natively on Galileo, but it takes very long.
