@@ -14,4 +14,6 @@ To copy everything to Galileo, and configure Galileo, use the script `sdk2Galile
 cd ndn-in-one
 ./sdk2Galileo -a
 ./sdk2Galileo -m configure
+scp nfd-start root@$GalileoIP:/bin
+scp nfd-stop  root@$GalileoIP:/bin
 ```
