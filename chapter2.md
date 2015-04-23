@@ -89,6 +89,7 @@ Change the owner and group of `/opt/ndn` to your name and group.
 ```
 cd ndn
 source environment-setup-i586-poky-linux-uclibc
+export LDFLAGS=$LDFLAGS:" -pthread"
 wget http://prdownloads.sourceforge.net/cryptopp/cryptopp562.zip
 mkdir cryptopp
 cd cryptopp
@@ -102,52 +103,17 @@ cd ndn-cxx
 /usr/bin/python waf configure --with-cryptopp=$PKG_CONFIG_SYSROOT_DIR --boost-includes=$PKG_CONFIG_SYSROOT_DIR/usr/include/ --boost-libs=$PKG_CONFIG_SYSROOT_DIR/usr/lib/ --prefix=$PKG_CONFIG_SYSROOT_DIR/usr/
 /usr/bin/python waf
 /usr/bin/python waf install
-
 cd /opt/ndn/
 git clone --recursive https://github.com/named-data/NFD
 cd NFD
-```
-* In `face/ethernet-face.cpp`, change `std::snprintf` to `snprintf`.
-* In `tools/ndn-autoconfig/base-dns.cpp to_string` change `std::to_string` to `boost::chrono::to_string`.
-
-```
 /usr/bin/python waf configure --boost-includes=$PKG_CONFIG_SYSROOT_DIR/usr/include/ --boost-libs=$PKG_CONFIG_SYSROOT_DIR/usr/lib/ --prefix=$PKG_CONFIG_SYSROOT_DIR/usr/
 /usr/bin/python waf
 /usr/bin/python waf install
 ```
-
-`End of Debian 7.8`
-
-## `On Galileo`
-
-Edit `/etc/opkg/base-feeds.conf` to add repository. Add following lines to the file:
+Download `ndn-in-one` in whatever folder you like
 ```
-src/gz all     http://repo.opkg.net/galileo/repo/all
-src/gz clanton http://repo.opkg.net/galileo/repo/clanton
-src/gz i586    http://repo.opkg.net/galileo/repo/i586
+cd ndn-in-one
+./sdk2Galileo -a
+./sdk2Galileo -m configure
 ```
 
-```
-opkg update
-opkg install --force-overwrite uclibc
-opkg install pkgconfig openssl sqlite3
-mkdir -p /opt/ndn/sysroots/i586-poky-linux-uclibc
-```
-
-`End of Galileo`
-### `On Debian 7.8`
-find out your Galileo IP and export to environment
-```
-export GalileoIP=10.0.0.2
-```
-
-```
-cd $PKG_CONFIG_SYSROOT_DIR
-scp -r include/cryptopp root@$GalileoIP:/include
-scp lib/libcryptopp.so root@$GalileoIP:/lib
-scp -r  usr/include/ndn-cxx root@$GalileoIP:/usr/include
-scp usr/lib/libndn-cxx.a root@$GalileoIP:/usr/lib
-scp -r usr/bin/nfd* root@$GalileoIP:/bin
-scp -r usr/bin/ndn* root@$GalileoIP:/bin
-scp -r usr/etc/ndn root@$GalileoIP:/opt/ndn/sysroots/i586-poky-linux-uclibc/usr/etc/
-```
