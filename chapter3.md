@@ -20,5 +20,6 @@ libcryptopp ndn-cxx NFD
 
 To copy everything to Galileo, usse the script `sdk2Galileo.sh` in [allInOne]( https://www.dropbox.com/sh/v24bbmqymbkw3v9/AADdVbMV57T6U9WhRNxrGDVta?dl=0) folder.
 ```
-./sdk2Galileo -f all
+./sdk2Galileo -a
+./sdk2Galileo -m configure
 ```
