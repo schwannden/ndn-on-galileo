@@ -22,7 +22,7 @@ Also to my friend Tock Chiu, who don't have a personal website yet, but is an ex
 Without you, this manual is not possible.
 
 ### Table of Content
-You don't need to read the whole book, just choose one of the chapters that is best for you:
+Choose one of the chapters that is best for you:
 
 [Chapter 1 The Whole Story](chapter1.md)
 This is a detailed account of the whole story.
