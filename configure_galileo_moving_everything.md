@@ -12,11 +12,6 @@ Moving `opkg` configuration file to Galileo, configure `opkg`, install required 
 ```
 ./sdk2Galileo.sh -m configure
 ```
-Overwriting `nfd-start` and `nfd-stop` by customized version
-```
-scp nfd-start root@$GalileoIP:/bin
-scp nfd-stop  root@$GalileoIP:/bin
-```
 
 ## Commands explained
 
