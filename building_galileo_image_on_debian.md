@@ -11,7 +11,7 @@ Install all the pre-requisite
 ```
 sudo apt-get install vim gcc g++ git make build-essential subversion libcurl4-openssl-dev uuid-dev autoconf texinfo libssl-dev libtool diffstat gawk chrpath openjdk-7-jdk connect-proxy autopoint gettext p7zip-full gcc-multilib vim-common wget git-core iasl
 ```
-Try ` iasl | head ` to see if ACPI 5.0 up is supported. If you see something like
+Try ` iasl | head ` to see if ACPI 5.0 or up is supported. If you see something like
 
 ![Supports ACPI Specification Revision 4.0a](fig1.1.01-acpi4.png)
 
@@ -23,14 +23,19 @@ sudo apt-get install libbison-dev flex
 ```
 Getting and compiling iasl:
 ```
-mkdir iasl;
-cd iasl;
-git clone git://github.com/acpica/acpica.git
+mkdir iasl
+cd iasl
+git clone https://github.com/acpica/acpica.git
 cd acpica
 make
-sudo ln -s /home/schwannden/ndn/iasl/acpica/generate/unix/bin/iasl /usr/bin/iasl
 ```
-Again, try ` iasl | head ` to see if ACPI 5.0 up is supported. It should be now.
+Starting to use the newly built iasl:
+```
+sudo make install
+```
+Again, try ` iasl | head ` to see if ACPI 5.0 or up is supported. It should be now.
+
+![Supports ACPI Specification Revision 5.1](fig1.1.02-acpi5.png)
 
 A possible error may happen during `iasl` compilation, see remark at the end.
 
@@ -141,6 +146,6 @@ Now insert the micro SD card into Galileo, and you are all set booting your Gali
 #### Remark
 * `iasl` bug
 
-At the time of writing, the Makefile for `iasl` treats warning message as fatal, causing the compilation to fail due to line 660 of `source/components/events/evgpe.c`, a usage of uninitialized variable `Status`. just initialize `Status` to 0 at line 635 and `make` it.
+At the time of writing (before `acpica commit 8e2118`), the Makefile for `iasl` treats warning messages as fatal, causing the compilation to fail due to line 660 of `source/components/events/evgpe.c` with usage of an uninitialized variable `Status`. Just initialize `Status` to 0 at line 635 and `make` it.
 
 
