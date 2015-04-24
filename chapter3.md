@@ -1,4 +1,4 @@
-# The Lazy Ride
+# All In One
 ## Getting Image
 ```
 git clone https://github.com/schwannden/ndn-in-one
