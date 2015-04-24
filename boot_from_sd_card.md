@@ -32,6 +32,8 @@ cp -r boot/ bzImage core-image-minimal-initramfs-clanton.cpio.gz grub.efi image-
 
 # Example no Mac Yosemite
 1. Insert your SD card
-
-2.
-3.
+![](sd1.png)
+2. Open Disk Utility
+![](mac1.png)
+3. Format the SD card
+![](mac2.png)
