@@ -29,8 +29,7 @@ This is a detailed account of the whole story.
 If you are new to Yocto, or terms like embedded linux, cross compile, this is definitely where you start.
 
 [Chapter 2 The Commands](chapter2.md)
-This is just a series of commands. This is for some one who want to copy paste the procedures quickly.
+This is just a series of commands for quick reference.
 
 [Chapter 3 All In One](chapter3.md)
-This is the ultimately lazy approach.
-I tried my best to upload all results. Here you will find links to those compiled product, and simply put them together.
+Use the [All in one](https://github.com/schwannden/ndn-in-one) package to quickly egt started.
