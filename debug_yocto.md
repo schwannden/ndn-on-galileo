@@ -8,7 +8,7 @@ Many things could happen.... But you use `Debian` and follow the steps I suggest
 
 #### Error on bitbake's logic
 
-This happens only once for me, and is due to network instability. For example, `bitbake` can not fetch certain package A (see next error), and other package B depends on A. Instead outputting error message "error in A's do_fetch procedure", it output error on B, because B doesn't have all its required packages. 
+This happens only once for me, and is due to network instability. For example, `bitbake` can not fetch certain package A (see next error), and other package B depends on A. Instead outputting error message "error in A's do_fetch procedure", it output error on B, because B doesn't have all its required packages.
 
 **Solution:** Re-execute `bitbake image-full-galileo` and things might get back to normal.
 

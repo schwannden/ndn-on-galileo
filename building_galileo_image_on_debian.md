@@ -1,9 +1,9 @@
 # Building Galileo Image on Debian
 
-Firstly, build a directory to do all the work
+Firstly, create a directory to do all the work
 ```
 mkdir ~/ndn
-cd ndn
+cd ~/ndn
 ```
 
 #### Pre-requisites
@@ -11,11 +11,15 @@ Install all the pre-requisite
 ```
 sudo apt-get install vim gcc g++ git make build-essential subversion libcurl4-openssl-dev uuid-dev autoconf texinfo libssl-dev libtool diffstat gawk chrpath openjdk-7-jdk connect-proxy autopoint gettext p7zip-full gcc-multilib vim-common wget git-core iasl
 ```
-Try ` iasl | head ` to see if ACPI 5.0 up is supported. If not, manually install it yourself.
+Try ` iasl | head ` to see if ACPI 5.0 up is supported. If you see something like
+
+![Supports ACPI Specification Revision 4.0a](fig1.1.01-acpi4.png)
+
+You will need to manually install it yourself.
 #### Manual Installation for iasl
 Pre-requisite of iasl:
 ```
-sudo  apt-get install libbison-dev flex
+sudo apt-get install libbison-dev flex
 ```
 Getting and compiling iasl:
 ```
@@ -58,7 +62,7 @@ Now go to `meta-clanton_v1.0.1` you can see all the meta directory. Because NDN 
 
 ```
 wget http://cgit.openembedded.org/openembedded-core/snapshot/openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.gz
-tar -xzvf openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.gz  
+tar -xzvf openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.gz
 ```
 All we need is boost's recipe so copy the `boost` folder into one of our working directory's meta-* folder. Since this is provided by [Open Embedded](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/), let's copy it into `meta-oe` folder.
 ```
@@ -129,7 +133,7 @@ Galileo uses micro SD card, so need a machine that reads micro SD card. I simply
 
 Notice some renaming is required, because Yocto insert the date-time as part of the name on each build, so you might see, for example, `image-full-galileo-clanton-20150226141940.rootfs.ext3`.
 
-Now insert the micro SD card into Galileo, and you are all set booting your Galileo image. By default, the image has ssh server daemon starts on boot time, with standard port (22) and user `root` with no password 
+Now insert the micro SD card into Galileo, and you are all set booting your Galileo image. By default, the image has ssh server daemon starts on boot time, with standard port (22) and user `root` with no password
 
 * See [Boot From SD Card](boot_from_sd_card.md) for more detail.
 * See [Debug Galileo](debug_galileo.md) for some hacks on debugging and connecting to Galileo.

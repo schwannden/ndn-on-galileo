@@ -8,7 +8,7 @@ Moving libcryptopp, ndn-cxx, nfd, ndn configuration file to Galileo
 ```
 ./sdk2Galileo.sh -a
 ```
-Moving `opkg` configuration file to Galileo, configure `opkg`, install required packages in Galileo. 
+Moving `opkg` configuration file to Galileo, configure `opkg`, install required packages in Galileo.
 ```
 ./sdk2Galileo.sh -m configure
 ```
