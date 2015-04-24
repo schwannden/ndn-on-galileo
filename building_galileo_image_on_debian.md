@@ -63,17 +63,16 @@ Firstly, we apply the patches. The script will in turn calls the setup.sh in `me
 ./patches_v1.0.4/patch.meta-clanton.sh
 ```
 
-Now, if you do `ls meta-clanton_v1.0.1`, you can see all the meta directory.
+Now, if you do `ls meta-clanton_v1.0.1`, you can see all the meta directories.
 
 ![meta-clanton_v1.0.1](fig1.1.03-meta-clanton.png)
 
-Because NDN project requires Boost library, which is not provided by default, we need to get it at [Open Embedded Metadata Index](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/). Go to [Open Embedded Metadata Index](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/), one can see boost is provided. Go to [boost index](http://layers.openembedded.org/layerindex/recipe/5268/), at the time of writing, they provide boost 1.57, which is not suitable for NDN development. We can find older version of boost_1-55 [here](http://cgit.openembedded.org/cgit.cgi/openembedded-core/commit/?id=e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f), in download tag, download and extract [this file](http://cgit.openembedded.org/openembedded-core/snapshot/openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.gz).
-
+Because NDN project requires Boost library, which is not provided by default, we need to get it at [Open Embedded Metadata Index](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/). Go to [Open Embedded Metadata Index](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/), one can see `boost` is provided. Go to [boost index](http://layers.openembedded.org/layerindex/recipe/5268/), at the time of writing, they provide `boost 1.57`, which is not suitable for NDN development. We can find an older version of `boost 1.55` [here](http://cgit.openembedded.org/cgit.cgi/openembedded-core/commit/?id=e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f), in the download section. Download and extract [this file](http://cgit.openembedded.org/openembedded-core/snapshot/openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.gz):
 ```
 wget http://cgit.openembedded.org/openembedded-core/snapshot/openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.gz
 tar -xzvf openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.gz
 ```
-All we need is boost's recipe so copy the `boost` folder into one of our working directory's meta-* folder. Since this is provided by [Open Embedded](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/), let's copy it into `meta-oe` folder.
+All we need is boost's recipe, so copy the `boost` folder into one of the working directory's meta-* folder. Since this is provided by [Open Embedded](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/), let's copy it into `meta-oe` folder.
 ```
 cd openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f
 cd meta/recipes-support
