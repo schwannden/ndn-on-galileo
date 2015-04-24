@@ -5,7 +5,7 @@ cd ndn-in-one
 ./sdk2Galileo -m get
 tar -xzvf image.tar.gz
 cd image
-cp * /media/SDcard
+cp -r * /media/SDcard
 ```
 * The image is the end result of [Building Galileo Image on Debian](building_galileo_image_on_debian.md).
 * /media/SDcard should be the path where you mount your SD card.
