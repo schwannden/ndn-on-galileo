@@ -8,9 +8,15 @@ If you don't have a micro SD card reader, get a micro to SD card converter. We n
 * SD card should have partition type `master boot record`
 * SD card should have one partition of type `FAT 32`
 
-After SD card is prepared, simply copy all five files in the image to SD card
+After SD card is prepared, simply copy all five files/folder in the image to SD card
+1. boot/
+2. grub.efi
+3. bzImage
+4. core-image-minimal-initramfs-clanton.cpio.gz
+5. image-full-galileo-clanton.ext3
 
 
+To demontrate how it is done on Debian 7.8, let's use GUI Disk util
 ```
 cp -r boot/ bzImage core-image-minimal-initramfs-clanton.cpio.gz grub.efi image-full-galileo-clanton.ext3 /media/clantonCF/
 ```
