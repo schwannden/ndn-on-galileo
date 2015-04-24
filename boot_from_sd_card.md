@@ -16,7 +16,13 @@ After SD card is prepared, simply copy all five files/folder in the image to SD 
 5. image-full-galileo-clanton.ext3
 
 
-To demontrate how it is done on Debian 7.8, let's use GUI Disk util
+To demontrate how it is done on Debian 7.8, let's use GUI Disk util in ``
+
+1. Select Format Drive, and format the SD card into `master boot record`
+2. Select Add Partition, then add a `FAT` partition
+3. Now you can copy everything to SD card
+
+
 ```
 cp -r boot/ bzImage core-image-minimal-initramfs-clanton.cpio.gz grub.efi image-full-galileo-clanton.ext3 /media/clantonCF/
 ```
