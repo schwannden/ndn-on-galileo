@@ -7,7 +7,7 @@
    * [Building NDN](building_ndn.md)
    * [Configure Galileo: Moving Everything](configure_galileo_moving_everything.md)
 * [Chapter 2: The Commands](chapter2.md)
-* [Chapter 3: The Lazy Ride](chapter3.md)
+* [Chapter 3: All In One](chapter3.md)
 * [Appendix](appendix.md)
    * [Debug Yocto](debug_yocto.md)
    * [Debug Galileo](debug_galileo.md)
