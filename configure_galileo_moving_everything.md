@@ -70,7 +70,7 @@ opkg install pkgconfig openssl sqlite3
 ```
 The installation of `vim` and `git` is not necessary, it's just that I can't survive without them.
 
-## 3. Changng the configuration files
+Also, we need to changng the configuration files
 In Galileo, make sure configuration files have the right names
 ```
 cd /opt/ndn/sysroots/i586-poky-linux-uclibc/usr/etc/ndn
