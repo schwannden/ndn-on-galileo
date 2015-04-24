@@ -3,15 +3,17 @@ NDN on Galileo
 
 
 ### About Author
-1. Schwannden Kuo
+* Schwannden Kuo
 
-E-mail: schwannden@gmail.com
+schwannden@gmail.com
+
+* [Ying-ping Chen](http://ypchen.tw)
 
 ### Special thanks
 Many thanks to
 Professor [Ling-Jyh Chen](https://sites.google.com/site/cclljj/), for bringing me into this new research field and give me much support and resources.
 
-Professor [Ying-ping Chen](http://ypchen.tw) who supported my projects and discussed with me various problems along the way.
+Professor [Ying-ping Chen](http://ypchen.tw) who supported my projects and discussed with me various problems along the way. 
 
 Also to my friend Tock Chiu, who don't have a personal website yet, but is an expert on compiler. And to Anthony Liu, an active member in Taiwan's embedded community, who taught me many concepts in instruction level debugging.
 
