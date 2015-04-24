@@ -3,7 +3,7 @@
 ```
 git clone https://github.com/schwannden/ndn-in-one
 cd ndn-in-one
-./sdk2Galileo -m get
+./sdk2Galileo -m get image
 tar -xzvf image.tar.gz
 ```
 * The image is the end result of [Building Galileo Image on Debian](building_galileo_image_on_debian.md).
