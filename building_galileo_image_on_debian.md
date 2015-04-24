@@ -129,7 +129,10 @@ Galileo uses micro SD card, so need a machine that reads micro SD card. I simply
 
 Notice some renaming is required, because Yocto insert the date-time as part of the name on each build, so you might see, for example, `image-full-galileo-clanton-20150226141940.rootfs.ext3`.
 
-Now insert the micro SD card into Galileo, and you are all set booting your Galileo image. By default, the image has ssh server daemon starts on boot time, with standard port (22) and user `root` with no password (See [Debug Galileo](debug_galileo.md) for some hacks on debugging and connecting to Galileo).
+Now insert the micro SD card into Galileo, and you are all set booting your Galileo image. By default, the image has ssh server daemon starts on boot time, with standard port (22) and user `root` with no password 
+
+* See [Boot From SD Card](boot_from_sd_card.md) for more detail.
+* See [Debug Galileo](debug_galileo.md) for some hacks on debugging and connecting to Galileo.
 
 #### Remark
 * `iasl` bug
