@@ -80,20 +80,20 @@ cp -r boost ~/ndn/Galileo-Runtime/meta-clanton_v1.0.1/meta-oe/meta-oe/recipes-su
 ```
 Now we have all we need for building Galileo image!
 
-#### Applying changes
+#### Applying Changes
 ```
-cd ~/ndn/meta-clanton_v1.0.1
+cd ~/ndn/Galileo-Runtime/meta-clanton_v1.0.1
 ```
-First we need to edit image recipe to make sure all relevent packges are in Galileo.  Edit `meta-clanton-distro/recipes-core/images/image-full.bb`
-1. increase the image filesystem ten times to around 3 G:
+First we need to edit the image recipe to make sure all relevent packges are in Galileo.  Edit `meta-clanton-distro/recipes-core/images/image-full.bb`
+1. Increase the image filesystem ten times to around 3 G:
     `IMAGE_ROOTFS_SIZE = "3072000"`
 2. Add features:
     `IMAGE_FEATURES += "package-management dev-pkgs"`
     The added option `dev-pkgs` means install the development packages (headers and extra library links) for all packages installed in a given image.
 3. Add packages
-    ```IMAGE_INSTALL += "autoconf automake binutils binutils-symlinks cpp cpp-symlinks gcc gcc-symlinks g++ g++-symlinks gettext make libstdc++ libstdc++-dev file coreutils boost"```
+    `IMAGE_INSTALL += "autoconf automake binutils binutils-symlinks cpp cpp-symlinks gcc gcc-symlinks g++ g++-symlinks gettext make libstdc++ libstdc++-dev file coreutils boost"`
 
-Then edit `meta-oe/meta-oe/recipes-support/boost/boost.inc` to add `chrono` and `random` libraries. These two libraries are not installed by default, but are needed for NDN development (one can find out what boost libraries are required in `.waf-tools/boost.py`).
+Then edit `meta-oe/meta-oe/recipes-support/boost/boost.inc` to add `chrono` and `random` libraries. These two libraries are not installed by default but are needed for NDN development. (One can find out what boost libraries are required in `.waf-tools/boost.py`.)
 
 ```
   7 BOOST_LIBS = "\
@@ -117,13 +117,15 @@ Then edit `meta-oe/meta-oe/recipes-support/boost/boost.inc` to add `chrono` and 
 ```
 cd ~/ndn/Galileo-Runtime/meta-clanton_v1.0.1
 ```
-First set up environment. oe-init-build-env will set up environment variable for Yocto build system, and automatically change directory tot he vuild directory. The default is `build/`, but here we specify `yocto_build`.
+First, set up the environment. `oe-init-build-env` will set up the environment variables for Yocto build system and automatically change directory to the build directory. The default is `build/`, but here we specify `yocto_build/`.
 
 ```
 source poky/oe-init-build-env yocto_build
 ```
+![Shell environment set up for builds](fig1.1.04-env-setup.png)
 
-Now you should be in `yocto_build` directory, simply build the image by:
+
+Now you should be in `yocto_build/` directory, simply build the image by using:
 ```
 bitbake image-full-galileo
 ```
