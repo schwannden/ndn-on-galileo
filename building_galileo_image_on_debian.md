@@ -48,9 +48,9 @@ git clone https://github.com/schwannden/Galileo-Runtime
 cd Galileo-Runtime
 ```
 
-Because we are building SD card image, we only need the following 2 folders
+Because we are building an SD card image, we need only the following two folders:
 
-This is the major folder that contain all the recipes for building galileo
+This is the major folder that contains all the recipes for building galileo
 ```
 tar -xzf meta-clanton_v1.0.1.tar.gz
 ```
@@ -58,12 +58,16 @@ This contains all the patches
 ```
 tar -xzf patches_v1.0.4.tar.gz
 ```
-First we shall apply the patches. The patch will in turn calls the setup.sh in meta-clanton_v1.0.1 to clone addition meta folders (meta-oe and meta-intel) and apply patches
+Firstly, we apply the patches. The script will in turn calls the setup.sh in `meta-clanton_v1.0.1` to clone addition meta folders (meta-oe and meta-intel) and apply the patches
 ```
 ./patches_v1.0.4/patch.meta-clanton.sh
 ```
 
-Now go to `meta-clanton_v1.0.1` you can see all the meta directory. Because NDN project requires Boost library, which is not provided by default, we need to get it at [Open Embedded Metadata Index](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/). Go to [Open Embedded Metadata Index](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/), one can see boost is provided. Go to [boost index](http://layers.openembedded.org/layerindex/recipe/5268/), at the time of writing, they provide boost 1.57, which is not suitable for NDN development. We can find older version of boost_1-55 [here](http://cgit.openembedded.org/cgit.cgi/openembedded-core/commit/?id=e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f), in download tag, download and extract [this file](http://cgit.openembedded.org/openembedded-core/snapshot/openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.gz).
+Now, if you do `ls meta-clanton_v1.0.1`, you can see all the meta directory.
+
+![meta-clanton_v1.0.1](fig1.1.03-meta-clanton.png)
+
+Because NDN project requires Boost library, which is not provided by default, we need to get it at [Open Embedded Metadata Index](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/). Go to [Open Embedded Metadata Index](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/), one can see boost is provided. Go to [boost index](http://layers.openembedded.org/layerindex/recipe/5268/), at the time of writing, they provide boost 1.57, which is not suitable for NDN development. We can find older version of boost_1-55 [here](http://cgit.openembedded.org/cgit.cgi/openembedded-core/commit/?id=e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f), in download tag, download and extract [this file](http://cgit.openembedded.org/openembedded-core/snapshot/openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.gz).
 
 ```
 wget http://cgit.openembedded.org/openembedded-core/snapshot/openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.gz
