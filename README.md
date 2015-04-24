@@ -28,6 +28,6 @@ If you are new to Yocto, or terms like embedded linux, cross compile, this is de
 
 This is just a series of commands. This is for some one who want to copy paste the procedures quickly.
 
-##[Chapter 3 The Lazy Ride](chapter3.md)
+##[Chapter 3 All In One](chapter3.md)
 This is the ultimately lazy approach.
 I tried my best to upload all results. Here you will find links to those compiled product, and simply put them together.
