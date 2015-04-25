@@ -135,7 +135,11 @@ bitbake image-full-galileo
 ```
 It takes a long time, probably a couple of hours, to finish. On my Intel i5 it takes 2 hours. Do not panic if you see warnings and errors. Sometimes the network in not stable, or the required repository is temporarily unavailable. The process consequently gets a time-out when fetching some packages. Just relaunch the building process repeatedly. In case a repository is really dead, add an alternative live repository (this is more complicated, see [Debug Yocto](debug_yocto.md)).
 
-If the building process succeeds, the image will be created in directory `yocto_build/tmp/deploy/images`.
+If the building process succeeds, the image will be created in directory `yocto_build/tmp/deploy/images/`.
+
+If you do `ls tmp/deploy/images`, you should see
+
+![Image files in yocto_build/tmp/deploy/images/](fig1.1.05-image.png)
 
 #### Porting the image to SD card
 Galileo uses micro SD card, so need a machine that reads micro SD card. I simply use a micro SD to SD card adapter. In Debian, we can simply use the `Disk Utility` in `Applications/Accessories/Dist Utility` to format SD card. First format the SD card into `master boot record`, then add a `FAT` partition, and copy the following 5 files from `yocto_build/tmp/deploy/images` onto the SD card.
