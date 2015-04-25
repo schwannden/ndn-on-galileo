@@ -70,7 +70,7 @@ Now, if you do `ls meta-clanton_v1.0.1`, you can see all the meta directories.
 Because NDN project requires Boost library, which is not provided by default, we need to get it at [Open Embedded Metadata Index](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/). Go to [Open Embedded Metadata Index](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/), one can see `boost` is provided. Go to [boost index](http://layers.openembedded.org/layerindex/recipe/5268/), at the time of writing, they provide `boost 1.57`, which is not suitable for NDN development. We can find an older version of `boost 1.55` [here](http://cgit.openembedded.org/cgit.cgi/openembedded-core/commit/?id=e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f), in the download section. Download and extract [this file](http://cgit.openembedded.org/openembedded-core/snapshot/openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.gz):
 ```
 wget http://cgit.openembedded.org/openembedded-core/snapshot/openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.gz
-tar -xzvf openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.gz
+tar -xzf openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f.tar.gz
 ```
 All we need is boost's recipe, so copy the `boost` folder into one of the working directory's meta-* folder. Since this is provided by [Open Embedded](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/), let's copy it into `meta-oe` folder.
 ```
@@ -113,6 +113,11 @@ Then edit `meta-oe/meta-oe/recipes-support/boost/boost.inc` to add `chrono` and 
  21         "
 ```
 
+There is a known removed repository. Edit `meta-clanton-bsp/recipes-bsp/grub/grub_0.97.bb` and change the line of SRC_URI as
+```
+SRC_URL = "git://github.com/mjg59/grub-fedora.git"
+```
+
 #### Building Image
 ```
 cd ~/ndn/Galileo-Runtime/meta-clanton_v1.0.1
@@ -124,14 +129,13 @@ source poky/oe-init-build-env yocto_build
 ```
 ![Shell environment set up for builds](fig1.1.04-env-setup.png)
 
-
 Now you should be in `yocto_build/` directory, simply build the image by using:
 ```
 bitbake image-full-galileo
 ```
-It should take more than a hour. On my Intel i5 it takes 2 hours. Do not panic if you see errors, sometimes your network or repository is not stable, it timed out when fetching some packages, just re-build again or in case the repository is really dead, add the live repository (this is more complicated, see [Debug Yocto](debug_yocto.md) section at the end of the chapter).
+It takes a long time, probably a couple of hours, to finish. On my Intel i5 it takes 2 hours. Do not panic if you see warnings and errors. Sometimes the network in not stable, or the required repository is temporarily unavailable. The process consequently gets a time-out when fetching some packages. Just relaunch the building process repeatedly. In case a repository is really dead, add an alternative live repository (this is more complicated, see [Debug Yocto](debug_yocto.md)).
 
-If the build succeed, the image is compiled in `yocto_build/tmp/deploy/images`.
+If the building process succeeds, the image will be created in directory `yocto_build/tmp/deploy/images`.
 
 #### Porting the image to SD card
 Galileo uses micro SD card, so need a machine that reads micro SD card. I simply use a micro SD to SD card adapter. In Debian, we can simply use the `Disk Utility` in `Applications/Accessories/Dist Utility` to format SD card. First format the SD card into `master boot record`, then add a `FAT` partition, and copy the following 5 files from `yocto_build/tmp/deploy/images` onto the SD card.
