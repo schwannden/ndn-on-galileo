@@ -8,9 +8,8 @@ If you believe you can help, the co-authorship is welcomed.
 * Add examples on setting up ndn clients and servers with above commands.
 * Provide steps relevant to Fedora.
 * Provide steps relevant to OsX.
-* An all in one script for compiling image, tool chain, and NDN.
-* Or do you want to know more about other stuff? Email me.
 * Installation and configuration of other NDN applications.
+* Or do you want to know more about other stuff? Email me.
 
 For co-authorship request or to-do list suggestion, please email:
 
