@@ -12,6 +12,5 @@
    * [Debug Yocto](debug_yocto.md)
    * [Debug Galileo](debug_galileo.md)
    * [Network Setup](network_setup.md)
-   * [ToDo](todo.md)
    * [Boot From SD Card](boot_from_sd_card.md)
-
+   * [ToDo](todo.md)
