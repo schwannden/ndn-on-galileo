@@ -5,7 +5,7 @@ NDN on Galileo
 
 
 ### About Author
-* Schwannden Kuo
+* [Schwannden Kuo](http://schwannden.wix.com/rigor)
 
 schwannden@gmail.com
 
