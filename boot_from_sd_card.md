@@ -5,7 +5,7 @@ Galileo Gen 2 can be booted from micro SD card. This section explains how to wri
 ![](sd3.png)
 
 ## Getting image
-You can get the Galileo's linux image by following [Building Galileo Image on Debian](building_galileo_image_from_debian.md), or download it [here]('http://sourceforge.net/projects/ndn-in-one/files/image.tar.gz), they are the same
+You can get the Galileo's linux image by following [Building Galileo Image on Debian](building_galileo_image_from_debian.md), or download it [here](http://sourceforge.net/projects/ndn-in-one/files/image.tar.gz), they are the same
 
 ## Preparing SD card
 If you don't have a micro SD card reader, get a micro to SD card converter.
