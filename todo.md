@@ -10,6 +10,7 @@ If you believe you can help, the co-authorship is welcomed.
 * Provide steps relevant to OsX.
 * Installation and configuration of other NDN applications.
 * Or do you want to know more about other stuff? Email me.
+* How to connect Arduino SDK to kernel.
 
 For co-authorship request or to-do list suggestion, please email:
 
