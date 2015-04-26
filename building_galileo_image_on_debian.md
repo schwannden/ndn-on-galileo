@@ -115,7 +115,11 @@ Then edit `meta-oe/meta-oe/recipes-support/boost/boost.inc` to add `chrono` and 
 
 There is a known removed repository. Edit `meta-clanton-bsp/recipes-bsp/grub/grub_0.97.bb` and change the line of SRC_URI as
 ```
-SRC_URL = "git://github.com/mjg59/grub-fedora.git"
+SRC_URI = "git://github.com/architech-backup/grub-fedora.git"
+```
+and the line of SECREV as
+```
+SRCREV = "f72d4d83931f7a6427771b480101e251a57ac1b8"
 ```
 
 #### Building Image
@@ -137,7 +141,7 @@ It takes a long time, probably a couple of hours, to finish. On my Intel i5 it t
 
 If the building process succeeds, the image will be created in directory `yocto_build/tmp/deploy/images/`.
 
-If you do `ls tmp/deploy/images`, you should see
+If you do `tree tmp/deploy/images`, you should see
 
 ![Image files in yocto_build/tmp/deploy/images/](fig1.1.05-image.png)
 
