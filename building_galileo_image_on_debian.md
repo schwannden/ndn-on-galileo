@@ -122,7 +122,7 @@ and the line of SECREV as
 SRCREV = "f72d4d83931f7a6427771b480101e251a57ac1b8"
 ```
 
-#### Building Image
+#### Building Images
 ```
 cd ~/ndn/Galileo-Runtime/meta-clanton_v1.0.1
 ```
@@ -145,17 +145,19 @@ If you do `tree tmp/deploy/images`, you should see
 
 ![Image files in yocto_build/tmp/deploy/images/](fig1.1.05-image.png)
 
-#### Porting the image to SD card
-Galileo uses micro SD card, so need a machine that reads micro SD card. I simply use a micro SD to SD card adapter. In Debian, we can simply use the `Disk Utility` in `Applications/Accessories/Dist Utility` to format SD card. First format the SD card into `master boot record`, then add a `FAT` partition, and copy the following 5 files from `yocto_build/tmp/deploy/images` onto the SD card.
+#### Copying images to SD card
+Galileo uses micro SD card, so a machine that reads micro SD card is needed for this step. I use a micro SD to SD card adapter for convenience. In Debian, we can simply use the `Disk Utility` in `Applications/Accessories/Dist Utility` to format the (micro) SD card. First format the SD card into the `Master Boot Record` (MBR) scheme, then add a `FAT` partition, and copy the following 5 files from `yocto_build/tmp/deploy/images/` onto the card.
 1. boot/
-2. grub.efi
-3. bzImage
-4. core-image-minimal-initramfs-clanton.cpio.gz
+2. bzImage
+3. core-image-minimal-initramfs-clanton.cpio.gz
+4. grub.efi
 5. image-full-galileo-clanton.ext3
 
-Notice some renaming is required, because Yocto insert the date-time as part of the name on each build, so you might see, for example, `image-full-galileo-clanton-20150226141940.rootfs.ext3`.
+If the way with which you use to copy perserves the symbolic links, you may need to change the behavior, such as adding `-L` or `--dereference` to `cp`. If you would like to directly copy the actual files, renaming some files is required, because Yocto inserts the date-time as part of the file name on each build. As you might see, for example, `image-full-galileo-clanton-20150426053734.rootfs.ext3`.
 
-Now insert the micro SD card into Galileo, and you are all set booting your Galileo image. By default, the image has ssh server daemon starts on boot time, with standard port (22) and user `root` with no password
+Now, insert the micro SD card into Galileo, and you are all set for booting your Galileo image. By default, the image has the ssh server daemon starting on boot with the standard ssh port (22) and user `root` with no password.
+
+If for some reason, networking is not availale. You can [use a FTDI232 TTL 3.3V cable](https://communities.intel.com/message/247258) with some appropriate terminal software, such as [PuTTY](http://www.putty.org/) in Windows, to connect to the serial console of Galileo for troubleshooting.
 
 * See [Boot From SD Card](boot_from_sd_card.md) for more detail.
 * See [Debug Galileo](debug_galileo.md) for some hacks on debugging and connecting to Galileo.
