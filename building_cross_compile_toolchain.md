@@ -15,11 +15,21 @@ Simply type
 ```
 bitbake image-full -c populate_sdk
 ```
-The `-c` flag tells `bitbake` to execute a specific procedure of the recipe. This process might take a couple of hours to finish. The SDK installation file will be put into `yocto_build/tmp/deploy/sdk/`. Execute the SDK installation file
+The `-c` flag tells `bitbake` to execute a specific procedure of the recipe. This process might take a couple of hours to finish. The SDK installation file will be put into `yocto_build/tmp/deploy/sdk/`.
 ```
 cd tmp/deploy/sdk
+```
+Execute the SDK installation file:
+1. 32-bit Debian
+```
+./clanton-tiny-uclibc-i686-i586-toolchain-1.4.2.sh
+```
+
+2. 64-bit Debian
+```
 ./clanton-tiny-uclibc-x86_64-i586-toolchain-1.4.2.sh
 ```
+
 You will be first asked where you want to install the cross compiler toolchain, and then the cross compiler toolchain will be installed there. I use `/opt/ndn` as my destination directory (see remark 1). After installing the SDK, you may go to the toolchain directory and set up the environment for building NDN.
 ```
 cd /opt/ndn
