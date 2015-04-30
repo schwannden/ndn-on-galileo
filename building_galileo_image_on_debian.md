@@ -161,9 +161,7 @@ Galileo uses micro SD card, so a machine that reads micro SD card is needed for 
 
 If the way with which you use to copy perserves the symbolic links, you may need to change the behavior, such as adding `-L` or `--dereference` to `cp`. If you would like to directly copy the actual files, renaming some files is required, because Yocto inserts the date-time as part of the file name on each build. As you might see, for example, `image-full-galileo-clanton-20150426053734.rootfs.ext3`.
 
-Now, insert the micro SD card into Galileo, and you are all set for booting your Galileo image. By default, the image has the ssh server daemon starting on boot with the standard ssh port (22) and user `root` with no password.
-
-If for some reason, networking is not availale. You can [use a FTDI232 TTL 3.3V cable](https://communities.intel.com/message/247258) with some appropriate terminal software, such as [PuTTY](http://www.putty.org/) in Windows, to connect to the serial console of Galileo for troubleshooting.
+Now, insert the micro SD card into Galileo, and you are all set for booting your Galileo image. By default, the image has the ssh server daemon starting on boot with the standard ssh port (22) and user `root` with no password. If, for some reason, networking is not availale, you can [use a FTDI232 TTL 3.3V cable](https://communities.intel.com/message/247258) with an appropriate terminal software, such as [PuTTY](http://www.putty.org/) in Windows, to connect to the serial console of Galileo for troubleshooting.
 
 * See [Boot From SD Card](boot_from_sd_card.md) for more detail.
 * See [Debug Galileo](debug_galileo.md) for some hacks on debugging and connecting to Galileo.
