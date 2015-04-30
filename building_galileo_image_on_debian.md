@@ -113,7 +113,13 @@ Then edit `meta-oe/meta-oe/recipes-support/boost/boost.inc` to add `chrono` and 
  21         "
 ```
 
-There is a known removed repository. Edit `meta-clanton-bsp/recipes-bsp/grub/grub_0.97.bb` and change the line of SRC_URI as
+There is a known removed repository. Edit `meta-clanton-bsp/recipes-bsp/grub/grub_0.97.bb` and you have the following two options:
+1. Use `git://github.com/mjg59/grub-fedora.git` by changing the line of SRC_URI as
+```
+SRC_URI = "git://github.com/mjg59/grub-fedora.git"
+```
+
+2. Use `git://github.com/architech-backup/grub-fedora.git` by changing the line of SRC_URI as
 ```
 SRC_URI = "git://github.com/architech-backup/grub-fedora.git"
 ```
