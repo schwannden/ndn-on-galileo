@@ -22,6 +22,18 @@ After SD card is prepared, simply copy all five files/folder in the image to SD 
 4. grub.efi
 5. image-full-galileo-clanton.ext3
 
+If, for some reason, networking is not availale, you can [use a FTDI232 TTL 3.3V cable](https://communities.intel.com/message/247258) with an appropriate terminal software, such as [PuTTY](http://www.putty.org/) in Windows, to connect to the serial console of Galileo. When Galileo boots up, you can see the options
+
+![](fig4.4.01-boot.png)
+
+select items on the grub menu
+
+![](fig4.4.02-boot-menu.png)
+
+and go through the whole booting process to see if there is any issue.
+
+![](fig4.4.03-boot-finish.png)
+
 ## Example: Debian 7.8
 To demontrate how it is done on Debian 7.8, let's use a GUI Disk utility: `Applications/Accessories/Dist Utility`
 
