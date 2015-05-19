@@ -24,12 +24,7 @@ Without you, this manual is not possible.
 ### Table of Content
 Choose one of the chapters that is best for you:
 
-[Chapter 1 The Whole Story](chapter1.md)
-This is a detailed account of the whole story.
-If you are new to Yocto, or terms like embedded linux, cross compilation, this is definitely where you start.
-
-[Chapter 2 The Commands](chapter2.md)
-This is just a series of commands for quick reference.
-
-[Chapter 3 All In One](chapter3.md)
+[Chapter 1 All In One](chapter1.md)
 Use the [All in one](https://github.com/schwannden/ndn-in-one) package to quickly get started.
+
+[Chapter 2 The Whole Story](chapter2.md)
