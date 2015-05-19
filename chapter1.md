@@ -1,17 +1,19 @@
-# The Whole Story
-### Summary
-This chapter is split into three parts
+# All In One
+## Getting Image
+```
+git clone https://github.com/schwannden/ndn-in-one
+cd ndn-in-one
+./sdk2Galileo -m get image
+tar -xzvf image.tar.gz
+```
+* The image is the end result of [Building Galileo Image on Debian](building_galileo_image_on_debian.md).
+* /media/SDcard should be the path where you mount your SD card.
+* See [Boot From SD Card](boot_from_sd_card.md) for more detail on how to boot Galileo from SD card.
 
-1. How to compile a customized linux kernel for Galileo using Yocto (customized in the sense that you can install ndn-cxx and nfd onto it.).
-2. How to build the cross compilation SDK for this customized linux (in case you want to play more with Galileo).
-3. How to cross compile ndn-cxx and nfd using the above SDK.
-
-### What is Yocto?
-
-Yocto is not a linux distribution, and Yocto is not a kernel. Yocto is a set of tools that facilitates the compilation of a customized linux kernel on various embedded machines. We choose Yocto for its flexibility on building our own kernel, and also because Intel offers a complete BSP layer (will talk more about this) for building a customized kernel onto Intel Galileo.
-
-Since Galileo's BSP layer uses an out-dated version of Yocto (1.6), many versions of operating systems won't work directly. In Fedora 20 I was able to get it working with many patches. In Mac OS, it is even harder to get it working.
-
-So far I've had better experience with Ubuntu 12.04 and Debian 7.8, while debian 7.8 is the best and most recommended platform!
-
-
+## Setting up NDN
+To copy everything to Galileo, and configure Galileo, use the script `sdk2Galileo.sh` in `ndn-in-one` folder.
+```
+cd ndn-in-one
+./sdk2Galileo -a
+./sdk2Galileo -m configure
+```
