@@ -19,3 +19,5 @@ cd ndn-in-one
 ./sdk2Galileo -a
 ./sdk2Galileo -m configure
 ```
+* Visit [ndn-in-one](https://github.com/schwannden/ndn-in-one) for more tutorial on using the script
+* Visit [The Whole Story](chapter2.md) for the details in each steps
