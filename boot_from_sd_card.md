@@ -39,7 +39,7 @@ To demontrate how it is done on Debian 7.8, let's use a GUI Disk utility: `Appli
 
 ![](deb0.png)
 
-1. Select Format Drive, and format the SD card into `Master Boot Record`
+1. Select Unmount Volume, then Format Drive, and format the SD card into `Master Boot Record`. If you get an error during this process, try first using the Format Volume option before proceeding with the remainder of the steps.
 ![](deb1.png)
 ![](deb2.png)
 
