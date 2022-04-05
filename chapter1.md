@@ -3,7 +3,7 @@
 ```
 git clone https://github.com/schwannden/ndn-in-one
 cd ndn-in-one
-./sdk2Galileo -m get image
+./sdk2Galileo.sh -m get image
 tar -xzvf image.tar.gz
 cd image
 cp -r * /media/SDcard
@@ -16,8 +16,8 @@ cp -r * /media/SDcard
 To copy everything to Galileo, and configure Galileo, use the script `sdk2Galileo.sh` in `ndn-in-one` folder.
 ```
 cd ndn-in-one
-./sdk2Galileo -a
-./sdk2Galileo -m configure
+./sdk2Galileo.sh -a
+./sdk2Galileo.sh -m configure
 ```
 * Visit [ndn-in-one](https://github.com/schwannden/ndn-in-one) for more tutorial on using the script
 * Visit [The Whole Story](chapter2.md) for the details in each steps
