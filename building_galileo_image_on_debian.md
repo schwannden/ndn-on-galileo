@@ -128,6 +128,56 @@ and the line of SECREV as
 SRCREV = "f72d4d83931f7a6427771b480101e251a57ac1b8"
 ```
 
+There are a number of changes that need to be made to URLs which call repositories:
+1. In file `meta-clanton_v1.0.1/meta-oe/meta-oe/recipes-multimedia/x264/x264_git.bb`, on what should be line 11:
+    - Change: `SRC_URI = "git://git.videolan.org/x264.git \` ...
+    - To: `SRC_URI = "git://gitorious.org/gxk-media/x264.git;protocol=http \` ...        
+    - Comment out the existing `SRCREV` line and add a new line: `SRCREV = "${AUTOREV}"`
+2. In file `openembedded-core-e0bc74e14f7ad67ff85959ce7c0a111d05ac7f2f/meta/recipes-multimedia/x264/x264_git.bb` on what should be line 10:
+    - Change: `SRC_URI = "git://git.videolan.org/x264.git \` ...
+    - To: `SRC_URI = "git://gitorious.org/gxk-media/x264.git;protocol=http \` ...
+3. In file `meta-clanton_v1.0.1/meta-clanton-bsp/recipes-bsp/grub/grub_0.97.bb` on what should be line 19:
+    - Change: `SRC_URI = "git://github.com/mjg59/grub-fedora.git"`
+    - To: `SRC_URI = "git://github.com/mjg59/grub-fedora.git;protocol=https"`
+4. In file `meta-clanton_v1.0.1/meta-oe/meta-oe/recipes-graphics/tslib/tslib_git.bb` on what should be line 19:
+    - Change: `SRC_URI = "git://github.com/kergoth/tslib.git;protocol=git \`
+    - To: `SRC_URI = "git://github.com/kergoth/tslib.git;protocol=https \`
+5. In file `meta-clanton_v1.0.1/meta-oe/meta-oe/recipes-support/yasm/yasm_1.2.0.bb` on what should be lines 3 **and** 7:
+    - Change `HOMEPAGE` to: `HOMEPAGE = "https://www.tortall.net/projects/yasm/"`
+    - Change `SRC_URI` to: `SRC_URI = "https://www.tortall.net/projects/yasm/releases/yasm-${PV}.tar.gz"`
+6. In file `meta-clanton_v1.0.1/meta-oe/meta-oe/recipes-support/yasm/yasm_1.2.0.bb` on what should be lines 2 **and** 9:
+    - Change `HOMEPAGE` to: `HOMEPAGE = "https://ftp.osuosl.org/pub/blfs/conglomeration/libsndfile"`
+    - Change `SRC_URI` to: `SRC_URI = "https://ftp.osuosl.org/pub/blfs/conglomeration/libsndfile/libsndfile-${PV}.tar.gz"`
+7. In file `meta-clanton_v1.0.1/meta-oe/meta-oe/recipes-support/yasm/yasm_1.2.0.bb` on what should be lines 3 **and** 4:
+    - Change `HOMEPAGE` to: `HOMEPAGE = "https://flac.sourceforge.net/"`
+    - Change `BUGTRACKER` to `BUGTRACKER = "https://sourceforge.net/tracker/?group_id=13478&atid=113478"`
+8. In file `meta-clanton_v1.0.1/poky/meta/recipes-connectivity/libpcap/libpcap.inc` on what should be lines 5, 6 **and** 19:
+    - Change `HOMEPAGE` to: `HOMEPAGE = "https://www.tcpdump.org/"`
+    - Change `BUGTRACKER` to `BUGTRACKER = "https://sourceforge.net/tracker/?group_id=53067&atid=469577"`
+    - Change `SRC_URI` to `SRC_URI = "https://www.tcpdump.org/release/libpcap-${PV}.tar.gz"`
+9. In file `meta-clanton_v1.0.1/poky/meta/recipes-multimedia/libtheora/libtheora_1.1.1.bb` on what should be lines 3 **and** 10:
+    - Change `HOMEPAGE` to: `HOMEPAGE = "https://ftp.osuosl.org/"`
+    - Change `SRC_URI` to `SRC_URI = "https://ftp.osuosl.org/pub/xiph/releases/theora/libtheora-${PV}.tar.bz2 \`
+10. In file `meta-clanton_v1.0.1/meta-oe/meta-oe/recipes-multimedia/webm/libvpx.inc` on what should be line 5:
+    - Change `SRC_URI` to `SRC_URI = "https://src.fedoraproject.org/lookaside/pkgs/libvpx/libvpx-v0.9.5.tar.bz2/4bf2f2c76700202c1fe9201fcb0680e3/libvpx-v${PV}.tar.bz2"`
+11. In file `meta-clanton_v1.0.1/poky/meta/recipes-multimedia/libvorbis/libvorbis_1.3.3.bb` on what should be lines 5 **and** 16:
+    - Change `HOMEPAGE` to: `HOMEPAGE = "https://ftp.osuosl.org"`
+    - Change `SRC_URI` to `SRC_URI = "https://ftp.osuosl.org/pub/xiph/releases/vorbis/libvorbis-${PV}.tar.gz \`
+12. In file `meta-clanton_v1.0.1/poky/meta/recipes-multimedia/liba52/liba52_0.7.4.bb` on what should be lines 2 **and** 11:
+    - Change `HOMEPAGE` to: `HOMEPAGE = "https://ftp.osuosl.org/"`
+    - Change `SRC_URI` to `SRC_URI = "https://ftp.osuosl.org/pub/blfs/conglomeration/a52dec/a52dec-${PV}.tar.gz \`
+13. In file `meta-clanton_v1.0.1/poky/meta/recipes-graphics/libsdl/libsdl_1.2.15.bb` on what should be lines 5, 6 **and** 24:
+    - Change `HOMEPAGE` to: `HOMEPAGE = "https://www.libsdl.org"`
+    - Change `BUGTRACKER` to: `BUGTRACKER = "https://bugzilla.libsdl.org/"`
+    - Change `SRC_URI` to `SRC_URI = "https://www.libsdl.org/release/SDL-${PV}.tar.gz \`
+14. In file `meta-clanton_v1.0.1/poky/meta/recipes-devtools/perl/perl-native_5.14.3.bb` on what should be lines 2 **and** 13:
+    - Change `HOMEPAGE` to: `HOMEPAGE = "https://www.perl.org/"`
+    - Change `SRC_URI` to `SRC_URI = "https://www.cpan.org/src/5.0/perl-${PV}.tar.gz \`
+15. In file `meta-clanton_v1.0.1/poky/meta/recipes-multimedia/libsamplerate/libsamplerate0_0.1.8.bb` on what should be line 9:
+    - Change `SRC_URI` to `SRC_URI = "https://ftp.osuosl.org/pub/blfs/conglomeration/libsamplerate/libsamplerate-${PV}.tar.gz"`
+16. Run `find . -type f -name "*.bb" -print0 | xargs -0 sed -i '' -e 's/http\:\/\//https\:\/\//g'` to convert all http URLs to use https
+        
+
 #### Building Images
 ```
 cd ~/ndn/Galileo-Runtime/meta-clanton_v1.0.1
